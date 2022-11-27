@@ -1,0 +1,36 @@
+ul.manifests {
+	list-style: none;
+	margin: -1%;
+	padding: 0;
+	}
+ul.manifests li {
+	display: inline-block;
+	position:relative;
+	overflow:hidden;
+	width:23%;
+	margin:1%;
+	border:6px solid #aaa;
+	border-radius: 8px;
+	}
+ul.manifests li:hover {border-color:#530B79}
+ul.manifests li a {
+	display: block;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+	border-radius: 6px;
+	border: 2px solid #fff;
+	}
+ul.manifests li a div {
+	overflow: hidden;
+	background-color: #eee;
+	border-radius: 5px;
+	}
+ul.manifests li a:hover {
+	border-color: yellow;
+	color:yellow;
+	}
+ul.manifests li b {position:absolute;bottom:10px;left:7px;right:7px}
+@media (min-width: 992px) {
+	ul.manifests li {width:48%;height:auto;margin:1%}
+	}
