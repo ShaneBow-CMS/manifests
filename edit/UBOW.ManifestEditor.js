@@ -61,9 +61,7 @@
 			   </div>
 			  </div>
 
-			  <div class="form-group otype">
-			   <label>Object Type</label>
-			  </div>
+			  <div class="otype"></div>
 
 			  <div class="form-group access">
 			   <label>Access</label>
@@ -101,22 +99,23 @@
 
 		constructor(sel, opts) { // @TODO - should take selector not jQuery
 			super($(ManifestEditor.HTML).appendTo($(sel))); //	 my.$frm
-//			super('form.manifest'); //	 my.$frm
 			const my = this;
 			my.settings = {...defaults, ...opts};
 			if (my.settings.imgDiv != defaults.imgDiv)
 				$(defaults.imgDiv).remove();
-			let $otype = 'name="otype" class="form-control"';
+
+			let $otype, $otypes = my.$frm.find('.otype');
 			if (my.settings.otypes) {
-				$otype = $(`<select ${$otype} />`);
+				$otypes.addClass('form-group').append('<label>Object Type</label>');
+				$otype = $(`<select name="otype" class="form-control" />`);
 				$.each(my.settings.otypes, (i, otype) => {
 					$otype.append(
 						`<option value="${otype.value}">${otype.name}</option>`)
 					});
 				}
 			else
-				$otype = $(`<input ${$otype} />`);
-			my.$frm.find('.otype').append($otype);
+				$otype = $(`<input type="hidden" name="otype" value=${my.settings.otype}/>`);
+			$otypes.append($otype);
 
 			let $access = my.$frm.find('[name=access]');
 			$.each(my.settings.access, (i, acc) => {
