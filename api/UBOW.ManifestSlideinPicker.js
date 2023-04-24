@@ -17,7 +17,8 @@
 				.appendTo($('#page-toolbar'))
 				.addClass('btn btn-xs');
 			let $el = $('<div></div>').appendTo('body');
-			my.$cb = $('<input type="checkbox" id="toggle-mani">').appendTo($el);
+			my.$cb = $('<input type="checkbox" id="toggle-mani">')
+				.appendTo($el).css({position:'absolute',top:'-100px'});
 			$el = $('<aside></aside>').appendTo($el);
 			new UBOW.ManifestSummaries($el, my.opts);
 			}
